@@ -1,0 +1,270 @@
+/* ---------- GLOBALT ---------- */
+:root{
+  --bg-page: #FFF1D4;     /* sidbakgrund */
+  --accent: #FFE09C;      /* gul platta för sektioner */
+  --brand: #093A4E;       /* mörk blågrön (text/links) */
+  --body-font: "Inter", sans-serif;
+  --display-font: "Antonio", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html,body{
+  height:100%;
+  margin:0;
+  padding:0;
+  background: var(--bg-page);
+  font-family: var(--body-font);
+  color: var(--brand);
+}
+
+/* ---------- TOPP: logo-box + hero ---------- */
+.top-container{
+  display:flex;
+  align-items:stretch;
+  width:100%;
+}
+
+/* logobox - fast bredd (så nav och innehåll linjeras med den) */
+.logo-box{
+  background: var(--accent);
+  min-width:180px;       /* justera vid behov */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height: 180px;  /* samma visuella höjd som i din referens */
+  padding:0;
+  margin: 0;
+}
+
+/* logotypen */
+.logo-img{
+  height:180px;
+  width:auto;
+  display:block;
+  margin:0;
+  padding:0;
+}
+
+/* hero-bilden tar resterande plats */
+.hero-box{
+  flex:1 1 auto;
+}
+.hero-img{
+  display:block;
+  width:100%;
+  height:180px;    /* samma visuella höjd som i din referens */
+  object-fit:cover;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- NAV ---------- */
+/* nav-baren ligger direkt under top-container och använder samma accentfärg */
+.nav-bar{
+  background: var(--accent);
+  padding:14px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+
+/* nav-inner styr vänsterjustering - vi lämnar en margin-left lika med logo-box min-width för att aligna med logon */
+.nav-inner{
+  max-width:1200px;
+  margin: 0;
+  padding-left: 190px; /* = logo-box min-width (170) + lite spacing (20) */
+  display:flex;
+  gap:36px;
+  align-items:center;
+}
+
+/* nav-länkar */
+.nav-inner a{
+  font-family: var(--display-font);
+  color: var(--brand);
+  text-decoration:none;
+  font-size:22px;
+  letter-spacing:0.2px;
+}
+
+/* ---------- INTRO ---------- */
+.intro{
+  max-width:900px;
+  margin:28px auto;
+  padding:0 24px;
+  font-size:18px;
+  line-height:1.6;
+  color:var(--brand);
+}
+
+/* ---------- BILDSEKTION ---------- */
+.image-section{
+  background: var(--accent);
+  padding: 36px 0 26px;
+}
+
+.image-inner{
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  gap:40px;
+  padding:0 30px;
+}
+
+/* varje kort */
+.card {
+  text-align:center;
+  width:48%;
+}
+
+/* bilderna */
+.info-img{
+  width:100%;
+  max-width:580px;
+  height:280px;
+  object-fit:cover;
+  display:block;
+  border-radius:4px;
+  display:block;
+  box-shadow: 0 0 0 8px rgba(255,224,156,0.0); /* inget synligt, plats för justering */
+  margin:0 auto;
+}
+
+/* rubrik under bild */
+.card h3{
+  margin-top:12px;
+  font-family: var(--display-font);
+  color: var(--brand);
+  font-size:22px;
+}
+
+/* ---------- FOOTER ---------- */
+.site-footer{
+  background: none;
+  padding:40px 0;
+}
+
+.footer-inner{
+  max-width:1100px;
+  margin:0 auto;
+  padding:15px 30px;
+  background: var(--accent);
+  font-family: var(--body-font);
+  color: var(--brand);
+  font-size:15px;
+  text-align:center;
+  border-radius:12px;
+}
+
+/* ---------- RESPONSIV: enkel fallback ---------- */
+@media (max-width: 920px){
+  .nav-inner { padding-left: 20px; }
+  .image-inner { flex-direction:column; align-items:center; }
+  .card { width:100%; }
+  .info-img { height:220px; max-width:880px; }
+  .logo-box { min-width:120px; padding:12px; }
+}
+
+/* ---------- BOKA-SIDA ---------- */
+.book-wrapper{
+  max-width: 1300px;
+  margin: 40px auto;
+  display: flex;
+  gap: 40px;
+  background: var(--bg-page);
+  padding: 20px 40px;
+}
+
+.book-box{
+  background: var(--accent);
+  padding: 40px;
+  border-radius: 25px;
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.book-box label{
+  font-family: var(--body-font);
+  font-size: 18px;
+  color: var(--brand);
+}
+
+.book-box input,
+.book-box textarea{
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #FFEEC4;
+  font-size: 16px;
+  border-radius: 6px;
+}
+
+.book-box textarea{
+  height: 120px;
+}
+
+/* Dropdown imitator */
+.dropdown-wrapper{
+  position: relative;
+}
+
+.dropdown-input{
+  width: 100%;
+  padding: 12px;
+  background: #FFEEC4;
+  border: none;
+  border-radius: 6px;
+}
+
+.dropdown-arrow{
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--brand);
+  font-size: 22px;
+}
+
+.sunset-img{
+  width: 45%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.dropdown-real{
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: none;
+  background: #FFEEC4;
+  font-size: 16px;
+  color: var(--brand);
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='%23093A4E'><polygon points='0,0 20,0 10,10'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size:16px;
+}
+
+/* Hover-effekter */
+.nav-inner a:hover{
+  color: #0b4f68;
+  text-decoration: underline;
+}
+
+/* Input & fields */
+.book-box input:hover,
+.book-box textarea:hover,
+.dropdown-real:hover{
+  background: #ffefc8;
+  cursor: pointer;
+}
+
+/* Fokus-effekt när man klickar */
+.book-box input:focus,
+.book-box textarea:focus,
+.dropdown-real:focus{
+  outline: 2px solid #0b4f68;
+  background: #fff8e1;
+}
